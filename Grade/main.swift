@@ -35,30 +35,34 @@ func menu(){
         if number == 1{
             gradeOfStudent()
         }
-        if number == 2{
+        else if number == 2{
             allGradesForStudent()
         }
-        if number == 3{
+        else if number == 3{
             allStudentGrades()
         }
-        if number == 4{
+        else if number == 4{
             averGradesForClass()
         }
-        if number == 5{
+        else if number == 5{
             averGradeForAssignment()
         }
-        if number == 6{
+        else if number == 6{
             lowestGradeForClass()
         }
-        if number == 7{
+        else if number == 7{
             highestGradeForClass()
         }
-        if number == 8{
+        else if number == 8{
             filterStudents()
         }
-        if number == 9{
+        else if number == 9{
             Quit()
         }
+    }
+    else{
+        print("Nuh uh! Put number that's listed.")
+        menu()
     }
 }
 
