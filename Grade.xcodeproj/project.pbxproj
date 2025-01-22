@@ -24,7 +24,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		4B03C2622D41AF3700435C8E /* students.csv */ = {isa = PBXFileReference; lastKnownFileType = text; name = students.csv; path = ../../students.csv; sourceTree = "<group>"; };
+		4B03C2642D41B2CF00435C8E /* students.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = students.csv; path = ../../students.csv; sourceTree = "<group>"; };
 		4B5ECDF02D419B8500C0C001 /* Grade */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = Grade; sourceTree = BUILT_PRODUCTS_DIR; };
 		4B5ECDF32D419B8500C0C001 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -61,7 +61,7 @@
 			isa = PBXGroup;
 			children = (
 				4B5ECDF32D419B8500C0C001 /* main.swift */,
-				4B03C2622D41AF3700435C8E /* students.csv */,
+				4B03C2642D41B2CF00435C8E /* students.csv */,
 			);
 			path = Grade;
 			sourceTree = "<group>";

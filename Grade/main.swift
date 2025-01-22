@@ -12,11 +12,20 @@ import CSV
 do{
     let stream = InputStream(fileAtPath: "/Users/StudentPM/Desktop/students.csv")
     let csv = try CSVReader(stream: stream!)
+    while let row = csv.next(){
+        print(row)
+    }
 }
 catch{
     print("Error!")
 }
 
+//Student name
+var names: [String] = []
+//Their average of their scores
+var finalScore: [Int] = []
+//line of their scores of each assignment
+var studentScores: [[String]] = []
 
 var firstTime = true
 
