@@ -8,24 +8,26 @@
 import Foundation
 import CSV
 
-//VARIABLES
-do{
-    let stream = InputStream(fileAtPath: "/Users/StudentPM/Desktop/students.csv")
-    let csv = try CSVReader(stream: stream!)
-    while let row = csv.next(){
-        print(row)
-    }
-}
-catch{
-    print("Error!")
-}
-
 //Student name
 var names: [String] = []
 //Their average of their scores
 var finalScore: [Int] = []
 //line of their scores of each assignment
 var studentScores: [[String]] = []
+
+//VARIABLES
+do{
+    let stream = InputStream(fileAtPath: "/Users/StudentPM/Desktop/students.csv")
+    let csv = try CSVReader(stream: stream!)
+    while let row = csv.next(){
+        
+        handleData(data: row)
+    }
+}
+catch{
+    print("Error!")
+}
+
 
 var firstTime = true
 
@@ -35,6 +37,29 @@ if firstTime == true{
 }
 
 // FUNCTIONS
+
+func handleData(data: [String]){
+    var tempScore: [String] = []
+    
+    for i in data.indices{
+        if i == 0{
+            names.append(data[i])
+        }
+        else{
+            tempScore.append(data[i])
+        }
+    }
+    
+    studentScores.append(tempScore)
+    
+    var scoreCalculated: Int = 0
+    
+    for i in studentScores.indices{
+        for j in studentScores[i].indices{
+            scoreCalculated += i
+        }
+    }
+}
 
 func menu(){
     print("Welcome to the Grade Manager!")
@@ -78,9 +103,9 @@ func menu(){
 func gradeOfStudent(){
     print("Which student would you like to choose?")
     
-    if let studentName = readLine(){
-        
-    }
+//    if let studentName = readLine(){
+//        
+//    }
     
     menu()
 }
