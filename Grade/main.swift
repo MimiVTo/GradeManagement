@@ -166,7 +166,7 @@ func allStudentGrades(){
 
 func averGradesForClass(){
     var sum: Double = 0.0
-                       
+    
     for i in finalScore.indices{
         sum += finalScore[i]
     }
