@@ -11,7 +11,7 @@ import CSV
 //Student name
 var names: [String] = []
 //Their average of their scores
-var finalScore: [Int] = []
+var finalScore: [Double] = []
 //line of their scores of each assignment
 var studentScores: [[String]] = []
 
@@ -28,6 +28,7 @@ catch{
     print("Error!")
 }
 
+print(finalScore)
 
 var firstTime = true
 
@@ -52,13 +53,24 @@ func handleData(data: [String]){
     
     studentScores.append(tempScore)
     
-    var scoreCalculated: Int = 0
-    
     for i in studentScores.indices{
+        //Using this to get the outer array
+        var scoresCalculated: Int = 0
+        var finalGradeCalculated: Double = 0
+        
         for j in studentScores[i].indices{
-            scoreCalculated += i
+            //inner array to add the inner array together
+            if let intGrade = Int(studentScores[i][j]){
+                scoresCalculated += intGrade
+            }
         }
+        if let doubleScore = Double(scoresCalculated), let doubleCount = Double(studentScores[i].count){
+            finalGradeCalculated = scoresCalculated/(studentScores[i].count)
+        }
+        
+        finalScore.append(finalGradeCalculated)
     }
+    
 }
 
 func menu(){
