@@ -28,7 +28,7 @@ catch{
     print("Error!")
 }
 
-print(finalScore)
+
 
 var firstTime = true
 
@@ -87,10 +87,12 @@ func handleData(data: [String]){
 }
 
 func menu(){
+    //Starting page
     print("Welcome to the Grade Manager!")
     print("What would you like to do? (Enter the number): \n1. Display grade of a single student \n2. Display all grades for a student \n3. Display all grades of ALL students \n4. Find the average grade of the class \n5. Find the average grade of an assignment \n6. Find the lowest grade in the class \n7. Find the highest grade of the class \n8. Filter students by grade range \n9. Quit")
     
     if let userInput = readLine(), let number = Int(userInput), number<10{
+        //Sending them to the function that corresponds with their option chosen
         if number == 1{
             gradeOfStudent()
         }
@@ -127,25 +129,49 @@ func menu(){
 
 func gradeOfStudent(){
     print("Which student would you like to choose?")
-    
-//    if let studentName = readLine(){
-//        
-//    }
-    
+    if let studentName = readLine(){
+        for i in names.indices{
+            //if it's the same as the name in the array, print the final score for that student
+            if studentName == names[i]{
+                print(names[i] + "'s grades are:")
+                print(finalScore[i])
+            }
+        }
+    }
     menu()
 }
 
 func allGradesForStudent(){
+    print("Which student would you like to choose?")
     
+    if let studentName = readLine(){
+        for i in names.indices{
+            //if it's the same as the name in the array, print the assignment scores of that student
+            if studentName == names[i]{
+                print(names[i] + "'s grades are:")
+                print(studentScores[i])
+            }
+        }
+    }
     menu()
 }
 
 func allStudentGrades(){
+    for i in names.indices{
+        print(names[i] + "'s ares are: \(studentScores[i])")
+    }
     
     menu()
 }
 
 func averGradesForClass(){
+    var sum: Double = 0.0
+                       
+    for i in finalScore.indices{
+        sum += finalScore[i]
+    }
+    
+    print(sum/Double(finalScore.count))
     
     menu()
 }
