@@ -42,34 +42,47 @@ if firstTime == true{
 func handleData(data: [String]){
     var tempScore: [String] = []
     
+    //Get the name in the names array
     for i in data.indices{
         if i == 0{
             names.append(data[i])
         }
         else{
+            //get the ones that are score numbers
             tempScore.append(data[i])
         }
     }
     
     studentScores.append(tempScore)
     
-    for i in studentScores.indices{
-        //Using this to get the outer array
-        var scoresCalculated: Int = 0
-        var finalGradeCalculated: Double = 0
-        
-        for j in studentScores[i].indices{
-            //inner array to add the inner array together
-            if let intGrade = Int(studentScores[i][j]){
-                scoresCalculated += intGrade
-            }
+    var scoresCalculated: Double = 0.0
+    
+    for i in tempScore.indices{
+        if let doubleScore = Double(tempScore[i]){
+            scoresCalculated += doubleScore
         }
-        if let doubleScore = Double(scoresCalculated), let doubleCount = Double(studentScores[i].count){
-            finalGradeCalculated = scoresCalculated/(studentScores[i].count)
-        }
-        
-        finalScore.append(finalGradeCalculated)
     }
+    
+    let finalScoreCalculated = scoresCalculated/Double(tempScore.count)
+    
+    finalScore.append(finalScoreCalculated)
+    
+//    for i in studentScores.indices{
+//        //Using this to get the outer array
+//        var finalGradeCalculated: Double = 0
+//        
+//        for j in studentScores[i].indices{
+//            //inner array to add the inner array together
+//            if let intGrade = Int(studentScores[i][j]){
+//                scoresCalculated += intGrade
+//            }
+//        }
+//        if let doubleScore = Double(scoresCalculated), let doubleCount = Double(studentScores[i].count){
+//            finalGradeCalculated = scoresCalculated/(studentScores[i].count)
+//        }
+        
+//        finalScore.append(finalGradeCalculated)
+//    }
     
 }
 
