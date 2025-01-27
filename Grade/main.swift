@@ -184,9 +184,21 @@ func averGradeForAssignment(){
     
     if let assignmentChosen = readLine(), let assignmentNumber = Int(assignmentChosen), assignmentNumber<11{
         
+        var sum: Double = 0
         
+        for i in studentScores.indices{
+            for j in studentScores[i].indices{
+                if j == assignmentNumber{
+                    if let theGrade = Double(studentScores[i][j-1]){
+                        sum += theGrade
+                    }
+                }
+            }
+        }
         
-        print ("The average for assignment #2 is:")
+        let doubleStr = String(format: "%.2f", (sum/Double(studentScores.count)))
+        
+        print ("The average for assignment #\(assignmentNumber) is: \(doubleStr)")
     }
     
     menu()
@@ -227,6 +239,22 @@ func highestGradeForClass(){
 }
 
 func filterStudents(){
+    
+    print("Enter the low range you would like to use:")
+    
+    if let lowRange = readLine(), let lowNum = Double(lowRange){
+        
+        print("Enter the high range you would like to use:")
+        
+        if let highRange = readLine(), let highNum = Double(highRange){
+            for i in finalScore.indices{
+                if finalScore[i] >= lowNum && finalScore[i] <= highNum{
+                    print("\(names[i]): \(finalScore[i])")
+                }
+            }
+        }
+        
+    }
     
     menu()
 }
