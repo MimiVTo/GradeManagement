@@ -158,7 +158,7 @@ func allGradesForStudent(){
 
 func allStudentGrades(){
     for i in names.indices{
-        print(names[i] + "'s ares are: \(studentScores[i])")
+        print(names[i] + "'s grades are: \(studentScores[i])")
     }
     
     menu()
@@ -171,22 +171,57 @@ func averGradesForClass(){
         sum += finalScore[i]
     }
     
-    print(sum/Double(finalScore.count))
+    let doubleStr = String(format: "%.2f", (sum/Double(finalScore.count)))
+    
+    print(doubleStr)
     
     menu()
 }
 
 func averGradeForAssignment(){
     
+    print("Which assignent would you like to get the average of (1-10):")
+    
+    if let assignmentChosen = readLine(), let assignmentNumber = Int(assignmentChosen), assignmentNumber<11{
+        
+        
+        
+        print ("The average for assignment #2 is:")
+    }
+    
     menu()
 }
 
 func lowestGradeForClass(){
     
+    var lowest = finalScore[0]
+    var whoLowest = names[0]
+    
+    for i in finalScore.indices{
+        if finalScore[i] <= lowest{
+            lowest = finalScore[i]
+            whoLowest = names[i]
+        }
+    }
+    
+    print("\(whoLowest) has the lowest score with \(lowest)")
+    
     menu()
 }
 
 func highestGradeForClass(){
+    
+    var highest = finalScore[0]
+    var whoHighest = names[0]
+    
+    for i in finalScore.indices{
+        if finalScore[i] >= highest{
+            highest = finalScore[i]
+            whoHighest = names[i]
+        }
+    }
+    
+    print("\(whoHighest) has the lowest score with \(highest)")
     
     menu()
 }
